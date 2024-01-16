@@ -50,16 +50,13 @@ passport.deserializeUser(function(obj, cb) {
 //cool aoc style animattions after clicking add
 
 
-
-
 var fs = require('fs');
-// var obj = JSON.parse(fs.readFileSync('data/top100.json', 'utf8'));
 var obj = JSON.parse(fs.readFileSync('data/sp.json', 'utf8'));
 
 
 /* MONGO */
 const MongoClient = require('mongodb').MongoClient
-connectionString = "mongodb+srv://jake1:install4@cluster0.djq8r.mongodb.net/?retryWrites=true&w=majority"
+connectionString = "mongodb+srv://jake2:"+process.env.MONGO_SECRET+"@cluster0.djq8r.mongodb.net/?retryWrites=true&w=majority"
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
@@ -140,8 +137,8 @@ app.post("/toggle", async (req, res) => {
 /*  Google AUTH  */
  
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const GOOGLE_CLIENT_ID = '142049106062-us1s1969aoqap0h6v7a4ihrhku4k5tpa.apps.googleusercontent.com';
-const GOOGLE_CLIENT_SECRET = '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';
+const GOOGLE_CLIENT_ID = '142049106062-4cmaned8bmnevm84dv2gq1scipt8egje.apps.googleusercontent.com;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_SECRET;
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
