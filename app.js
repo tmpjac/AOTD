@@ -137,7 +137,7 @@ app.post("/toggle", async (req, res) => {
 /*  Google AUTH  */
  
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const GOOGLE_CLIENT_ID = '142049106062-4cmaned8bmnevm84dv2gq1scipt8egje.apps.googleusercontent.com;
+const GOOGLE_CLIENT_ID = '142049106062-4cmaned8bmnevm84dv2gq1scipt8egje.apps.googleusercontent.com';
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_SECRET;
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
